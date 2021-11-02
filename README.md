@@ -41,6 +41,12 @@ aws-sandbox-tf
 |terraform	| aws	| security module	| terraform-aws-security
 |terraform	| azure	| database	| terraform-azure-database
 
+## Variable Assignment
+- ENV VARS 
+- CLI flags `terraform plan -var="t3.micro"`
+- from `terraform.tfvars` file
+- variable defaults
+
 #### Tips
 1. Use only one module per repository.
 2. Track all changes using version control with detailed commit messages.

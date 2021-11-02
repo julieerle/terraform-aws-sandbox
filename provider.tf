@@ -10,7 +10,7 @@ terraform {
   backend "s3" {
     bucket         = "julie-remote-state"
     key            = "aws-sandbox/dev/terraform.tfstate"
-    dynamodb_table = "terraform-state-lock-dynamo"
+    dynamodb_table = "julie-terraform-state-lock-dynamo"
     encrypt        = true
     region         = "us-west-2"
   }

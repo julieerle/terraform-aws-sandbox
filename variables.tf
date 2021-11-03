@@ -31,3 +31,8 @@ variable "instance_type" {
   type        = list(string)
   default     = ["t2.micro", "t3.micro"]
 }
+
+# Conditional Vars
+variable "is_test" {
+  type = bool
+}

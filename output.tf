@@ -1,4 +1,4 @@
-# output "test" {
-#     descripion = "this is a test"
-#     value = "TEST!"
-# }
+output "test" {
+  description = "this is a test"
+  value       = "TEST!"
+}

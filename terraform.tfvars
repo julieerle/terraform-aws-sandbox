@@ -1,1 +1,1 @@
-instance_type = "t2.medium"
+# instance_type = ["m5.large", "m5.xlarge"]

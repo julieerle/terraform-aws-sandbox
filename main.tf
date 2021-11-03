@@ -17,12 +17,18 @@ data "aws_subnet" "example-vpc-public-us-west-2b" {
   id = var.subnet_id
 }
 
-# RESOURCES
-resource "aws_instance" "julie-test" {
-  count = 1
+##### RESOURCES #####
+# resource "aws_key_pair" "julie-kp" {
+#   key_name = "julie-kp"
+#   public_key = ""
+# }
 
-  ami           = data.aws_ami.amazon-linux-2.id
-  instance_type = "t3.micro"
+resource "aws_instance" "julie-test" {
+  count = var.is_test == true ? 1 : 0
+
+  ami                         = data.aws_ami.amazon-linux-2.id
+  instance_type               = var.instance_type[1]
+  associate_public_ip_address = false
 
   root_block_device {
     encrypted             = true
@@ -34,6 +40,28 @@ resource "aws_instance" "julie-test" {
   tags = merge(local.common_tags,
     {
       Name = "julie-test"
+  })
+
+  volume_tags = local.common_tags
+}
+
+resource "aws_instance" "julie-prod" {
+  count = var.is_test == false ? 1 : 0
+
+  ami                         = data.aws_ami.amazon-linux-2.id
+  instance_type               = var.instance_type[2]
+  associate_public_ip_address = true
+
+  root_block_device {
+    encrypted             = true
+    delete_on_termination = true
+  }
+
+  subnet_id = data.aws_subnet.example-vpc-public-us-west-2b.id
+
+  tags = merge(local.common_tags,
+    {
+      Name = "julie-prod"
   })
 
   volume_tags = local.common_tags

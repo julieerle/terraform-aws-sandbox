@@ -22,7 +22,7 @@ resource "aws_instance" "julie-test" {
   count = 1
 
   ami           = data.aws_ami.amazon-linux-2.id
-  instance_type = "t3.micro"
+  instance_type = var.instance_type[1]
 
   root_block_device {
     encrypted             = true
@@ -38,3 +38,4 @@ resource "aws_instance" "julie-test" {
 
   volume_tags = local.common_tags
 }
+

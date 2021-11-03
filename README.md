@@ -47,6 +47,11 @@ aws-sandbox-tf
 - from `terraform.tfvars` file
 - variable defaults
 
+## Test Functions
+1. `terraform console`
+2. `lookup({a="ay", b="bee"}, "a", "what?")`
+3. `exit`
+
 #### Tips
 1. Use only one module per repository.
 2. Track all changes using version control with detailed commit messages.

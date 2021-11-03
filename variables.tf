@@ -14,6 +14,12 @@ variable "aws_region" {
   default     = "us-west-2"
 }
 
+variable "path_to_key" {
+  description = "local path to user key pair needed to generate ec2 instances."
+  type        = string
+  default     = " "
+}
+
 variable "vpc_id" {
   description = "Manually created example VPC for testing."
   type        = string
@@ -29,7 +35,7 @@ variable "subnet_id" {
 variable "instance_type" {
   description = "List of instance types for EC2."
   type        = list(string)
-  default     = ["t2.micro", "t3.micro"]
+  default     = ["t2.micro", "t3.micro", "t2.medium"]
 }
 
 # Conditional Vars

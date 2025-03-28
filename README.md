@@ -1,4 +1,4 @@
-# aws-sandbox-tf  Outdated
+# aws-sandbox-tf
 
 - This module creates the AWS S3 bucket and AWS DynamoDB table needed to host remote state for other modules/configurations to use. 
 - The state file for this config is stored locally.
